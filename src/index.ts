@@ -118,7 +118,7 @@ async function findChannelFromList(page: Page) {
 async function findCOnlineChannel(page: Page) {
     buffering = 0;
     prevDuration = -1;
-    info('正在寻找在线频道...');
+    info(`正在寻找 ${game} 在线频道...`);
     if (file) await findChannelFromList(page);
     else await findRandomChannel(page);
 }
