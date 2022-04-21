@@ -12,7 +12,7 @@ When the stream it's watching goes offline, it finds a new one. Great for runnin
 2. 命令框运行 `npm install`
 3. 命令框运行 `npm run build` 来编译TS文件
 4. 设置环境变量 [环境变量](#环境变量)
-5. 通过 `npm start -- "GAME-NAME"` 命令来运行本项目(GAME-NAME 为您要进行获取掉宝活动的游戏名称) (e.g. ht<span>tps://</span>twitch.tv/directory/game/**fortnite**)
+5. 通过 `npm start -- "GAME-NAME"` 命令来运行本项目(GAME-NAME 为您要进行获取掉宝活动的游戏名称)
    
 更多选项详见 `npm start -- --help`
    
@@ -22,10 +22,6 @@ When the stream it's watching goes offline, it finds a new one. Great for runnin
 2.获取您的Twitch验证令牌，可以在浏览器登录Twitch后通过F12进入控制台，在cookie中找到自己账号的auth_token。如果您的auth_token是 `dasdsfadafsgafsdf`，请在`.env`中填写 `TWITCH_AUTH_TOKEN = dasdsfadafsgafsdf`
 
 3.获取您的Google Chrome安装路径，通常你可以再Chrome的地址栏中输入 `chrome://version/` ，并通过可执行文件路径找到自己的安装路径。如果您的可执行文件路径为 `C:\Program Files\Google\Chrome\Application\chrome.exe`，请在`.env`中填写 `TWITCH_CHROME_EXECUTABLE = "C:\Program Files\Google\Chrome\Application\Chrome.exe"`
-
-
-The first variable you need to set are `TWITCH_AUTH_TOKEN`, which you can find by signing in to Twitch in your browser, and finding the auth-token cookie. 
-Do NOT share this with others. This project will only run on your machine, and your auth token will therefore never leave your machine.
 
 **注意：根据相关安全协议，在您的token失效或登录失败后，请重新登录获取token！**
 
