@@ -20,6 +20,7 @@ When the stream it's watching goes offline, it finds a new one. Great for runnin
 
 1.新建 `.env` 文件，相关示例可查阅 [.env.example](/.env.example)
 2.获取您的Twitch验证令牌，可以在浏览器登录Twitch后通过F12进入控制台，在cookie中找到自己账号的auth_token。如果您的auth_token是 `dasdsfadafsgafsdf`，请在`.env`中填写 `TWITCH_AUTH_TOKEN = dasdsfadafsgafsdf`
+请在每次更新 `.env` 文件后重新运行 `npm run build`
 
 3.获取您的Google Chrome安装路径，通常你可以再Chrome的地址栏中输入 `chrome://version/` ，并通过可执行文件路径找到自己的安装路径。如果您的可执行文件路径为 `C:\Program Files\Google\Chrome\Application\chrome.exe`，请在`.env`中填写 `TWITCH_CHROME_EXECUTABLE = "C:\Program Files\Google\Chrome\Application\Chrome.exe"`
 
