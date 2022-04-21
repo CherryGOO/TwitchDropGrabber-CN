@@ -130,7 +130,7 @@ async function checkInventory(inventory: Page) {
     const claimButtons = (await inventory.$$('button[data-test-selector="DropsCampaignInProgressRewardPresentation-claim-button"]'));
     vinfo(`${claimButtons.length} claim buttons found${claimButtons.length > 0 ? '!' : '.'}`);
     for (const claimButton of claimButtons) {
-        info('Reward found! Claiming!')
+        info('找到宝藏啦！是我的啦！')
         await new Promise(resolve => setTimeout(resolve, 1000));
         await claimButton.click();
         await new Promise(resolve => setTimeout(resolve, 1000));
@@ -151,14 +151,14 @@ async function isLive(mainPage: Page) {
 async function checkLiveStatus(mainPage: Page) {
     const {videoDuration, notLive, raid} = await isLive(mainPage);
     if (notLive || raid) {
-        info('Channel offline');
+        info('频道离线');
         await findCOnlineChannel(mainPage);
         return;
     }
     if (videoDuration === prevDuration) {
-        warn('Stream buffering or offline. If this persists a new channel will be found next cycle');
+        warn('流媒体正在缓冲或已离线. 若持续存在将会在下个周期寻找新频道');
         if (++buffering > 1) {
-            info('Channel offline or stream still buffering');
+            info('频道离线或视频流正在缓冲');
             await findCOnlineChannel(mainPage);
             return;
         }
