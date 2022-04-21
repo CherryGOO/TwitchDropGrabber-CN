@@ -1,4 +1,5 @@
 # Twitch Drop Grabber
+十分感谢AlexSterk大佬的这个项目，像我这种低技术力的只能搬运和简单的汉化一下
 
 Node.js application that watches Twitch streams and collects [Drops](https://help.twitch.tv/s/article/mission-based-drops?language=en_US). 
 When the stream it's watching goes offline, it finds a new one. Great for running in the background: **Set and forget**.
@@ -29,3 +30,6 @@ When the stream it's watching goes offline, it finds a new one. Great for runnin
 ## 免责声明
 本项目仅仅是分流并将说明汉化的[AlexSterk/TwitchDropGrabber](https://github.com/AlexSterk/TwitchDropGrabber)项目
 更多内容[请点击这里查看更多](https://github.com/AlexSterk/TwitchDropGrabber)
+
+如果我的行为对您的权益造成了伤害，请联系我删除此项目
+If my behavior has harmed your rights and interests, please contact me to delete this item
