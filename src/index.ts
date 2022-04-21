@@ -46,18 +46,18 @@ function warn(msg: string) {
 }
 
 async function initTwitch(page: Page) {
-    info('Navigating to Twitch');
+    info('正在跳转至Twitch');
     await page.goto('https://twitch.tv', {
         waitUntil: ['networkidle2', 'domcontentloaded']
     });
-    info('Configuring streaming settings');
+    info('正在配置流媒体设置...');
     await page.evaluate(() => {
         localStorage.setItem('mature', 'true');
         localStorage.setItem('video-muted', '{"default":true}');
         localStorage.setItem('volume', '0.0');
         localStorage.setItem('video-quality', '{"default":"160p30"}');
     });
-    info('Signing in using auth-token')
+    info('正在使用auth-token登录...')
     await page.setCookie(
         {
             name: 'auth-token',
@@ -75,7 +75,7 @@ async function findRandomChannel(page: Page) {
     });
     const aHandle = await page.waitForSelector('a[data-a-target="preview-card-image-link"]', {timeout: 0});
     const channel = await page.evaluate(a => a.getAttribute('href'), aHandle);
-    info('Channel found: navigating');
+    info('频道确认: 正在跳转...');
     await page.goto(`https://twitch.tv${channel}`, {
         waitUntil: ['networkidle2', 'domcontentloaded']
     });
@@ -84,10 +84,10 @@ async function findRandomChannel(page: Page) {
 let list: string[];
 
 async function readList() {
-    info(`Parsing list of channels: ${file}`);
+    info(`正在解析频道列表: ${file}`);
     const read = await fs.readFile(file, {encoding: "utf-8"});
     list = read.split(/\r?\n/).filter((s: string) => s.length !== 0);
-    info(`${list.length} channels found: ${list.join(', ')}`);
+    info(`${list.length} 已有频道: ${list.join(', ')}`);
 }
 
 async function findChannelFromList(page: Page) {
@@ -108,17 +108,17 @@ async function findChannelFromList(page: Page) {
                 vinfo(`Channel streaming the given game: ${streamingGame}`);
                 if (!streamingGame) continue;
             }
-            info('Online channel found!');
+            info('发现在线频道！');
             return;
         }
     }
-    info('No channels online! Trying again after the timeout');
+    info('频道已下线！请稍后重试');
 }
 
 async function findCOnlineChannel(page: Page) {
     buffering = 0;
     prevDuration = -1;
-    info('Finding online channel...');
+    info('正在寻找在线频道...');
     if (file) await findChannelFromList(page);
     else await findRandomChannel(page);
 }
@@ -176,7 +176,7 @@ async function runTimer(mainPage: Page, inventory: Page) {
 }
 
 async function run() {
-    info('Starting application');
+    info('应用启动中...');
     const browser = await puppeteer.launch({
         executablePath: process.env.TWITCH_CHROME_EXECUTABLE,
         headless: headless,
