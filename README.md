@@ -13,7 +13,7 @@ When the stream it's watching goes offline, it finds a new one. Great for runnin
 2. 命令框运行 `npm install`
 3. 命令框运行 `npm run build` 来编译TS文件
 4. 设置环境变量 [环境变量](#环境变量)
-5. 通过 `npm start -- "GAME-NAME"` 命令来运行本项目(GAME-NAME 为您要进行获取掉宝活动的游戏名称)
+5. 通过 `npm start -- "GAME-NAME"` 命令来运行本项目(GAME-NAME 为您要进行获取掉宝活动的游戏名称，例：`npm start -- "War Thunder"`)
 6. 想要结束运行，请在命令框中使用快捷键 `ctrl+c` 后输入 `y`或者 `Y` 回车
 
 
