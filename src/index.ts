@@ -130,7 +130,7 @@ async function checkInventory(inventory: Page) {
     const claimButtons = (await inventory.$$('button[data-test-selector="DropsCampaignInProgressRewardPresentation-claim-button"]'));
     vinfo(`${claimButtons.length} claim buttons found${claimButtons.length > 0 ? '!' : '.'}`);
     for (const claimButton of claimButtons) {
-        info('找到宝藏啦！是我的啦！')
+        info('发现宝藏！是我的啦！')
         await new Promise(resolve => setTimeout(resolve, 1000));
         await claimButton.click();
         await new Promise(resolve => setTimeout(resolve, 1000));
